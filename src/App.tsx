@@ -6,7 +6,7 @@ export default function App() {
   return (
     <ChakraProvider theme={theme}>
       <Button colorScheme="teal">ボタン</Button>
-      <p>aaaaaa</p>
+      <p>aaaaaaz1</p>
     </ChakraProvider>
   );
 }
