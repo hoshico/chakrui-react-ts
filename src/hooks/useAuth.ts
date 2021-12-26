@@ -16,7 +16,6 @@ export const useAuth = () => {
             axios
             .get<User>(`https://jsonplaceholder.typicode.com/users/${id}`)
             .then((res) => {
-                console.log("発火")
                 if (res.data) {
                 history.push("/home");
                 } else {
