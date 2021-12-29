@@ -1,4 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disabled react-hooks/exhaustive-deps */
 import { useCallback, useState } from "react";
 import axios from "axios";
 
@@ -8,7 +8,7 @@ import { useMessage } from "./useMessage";
 export const useAllUsers = () => {
     const { showMessage } = useMessage();
 
-    const [loading, setLoading] = useState<boolean>(false);
+    const [loading, setLoading] = useState(false);
     const [users, setUsers] = useState<Array<User>>([])
 
     const getUsers = useCallback(() => {
@@ -20,6 +20,6 @@ export const useAllUsers = () => {
                 showMessage({ title: "ユーザー取得に失敗しました", status: "error" })
             })
             .finally(() => setLoading(false))
-        }, [loading, users]);
-    return { getUsers }
+        }, []);
+    return { getUsers, loading, users }
 }
