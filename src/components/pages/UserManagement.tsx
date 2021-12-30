@@ -1,5 +1,5 @@
 /* eslint-disabled react-hooks/exhaustive-deps */
-import { Center, FormControl, FormLabel, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, Spinner, Stack, useDisclosure, Wrap, WrapItem } from "@chakra-ui/react";
+import { Center, Spinner, useDisclosure, Wrap, WrapItem } from "@chakra-ui/react";
 import { memo, useCallback, useEffect, VFC } from "react";
 import { UserCard } from "../organisms/user/UserCard";
 import { useAllUsers } from "../../hooks/useAllUsers";
@@ -11,7 +11,10 @@ export const UserManagement: VFC = memo(() => {
 
     useEffect(() => getUsers(), [])
 
-    const onClickUser = useCallback(() => onOpen(),[]);
+    const onClickUser = useCallback((id: number) => {
+        console.log(id);
+        onOpen();
+    }, []);
     
     return (
       <>
@@ -24,6 +27,7 @@ export const UserManagement: VFC = memo(() => {
                 {users.map((user) => (
                     <WrapItem key={user.id} mx="auto">
                         <UserCard 
+                            id={user.id}
                             imageUrl="https://source.unsplash.com/random" 
                             userName={user.username} 
                             fullName={user.name}
